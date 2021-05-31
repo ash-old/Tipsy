@@ -39,6 +39,9 @@ class CalculatorViewController: UIViewController {
   }
   
   @IBAction func stepperValueChanged(_ sender: UIStepper) {
+    let stepperValue = String(format: "%.*f", sender.value)
+    splitNumberLabel.text = stepperValue
+    
   }
   
   
