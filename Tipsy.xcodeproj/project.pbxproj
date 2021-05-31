@@ -56,15 +56,39 @@
 		5E8F42E8265D8CB90022F1E3 /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				5E8F42FE265D8E3E0022F1E3 /* Models */,
+				5E8F42FF265D8E460022F1E3 /* Views */,
+				5E8F4300265D8E4F0022F1E3 /* Controllers */,
 				5E8F42E9265D8CB90022F1E3 /* AppDelegate.swift */,
 				5E8F42EB265D8CB90022F1E3 /* SceneDelegate.swift */,
-				5E8F42ED265D8CB90022F1E3 /* ViewController.swift */,
-				5E8F42EF265D8CB90022F1E3 /* Main.storyboard */,
 				5E8F42F2265D8CBB0022F1E3 /* Assets.xcassets */,
 				5E8F42F4265D8CBB0022F1E3 /* LaunchScreen.storyboard */,
 				5E8F42F7265D8CBB0022F1E3 /* Info.plist */,
 			);
 			path = Tipsy;
+			sourceTree = "<group>";
+		};
+		5E8F42FE265D8E3E0022F1E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5E8F42FF265D8E460022F1E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E8F42EF265D8CB90022F1E3 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E8F4300265D8E4F0022F1E3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E8F42ED265D8CB90022F1E3 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
