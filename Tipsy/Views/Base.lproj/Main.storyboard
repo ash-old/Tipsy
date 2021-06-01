@@ -187,8 +187,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="170" translatesAutoresizingMaskIntoConstraints="NO" id="5XK-E7-qFz">
-                                <rect key="frame" x="10" y="498" width="394" height="280"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="5XK-E7-qFz">
+                                <rect key="frame" x="10" y="548" width="394" height="230"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill split between 2 people, with 10% tip." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9t-Ou-sR6">
                                         <rect key="frame" x="27" y="0.0" width="340.5" height="60"/>
@@ -197,7 +197,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ON-3T-5N7">
-                                        <rect key="frame" x="72" y="230" width="250" height="50"/>
+                                        <rect key="frame" x="72" y="180" width="250" height="50"/>
                                         <color key="backgroundColor" red="0.99999517199999999" green="0.56865602729999998" blue="0.30195426939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="AM6-FZ-D1U"/>
