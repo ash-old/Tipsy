@@ -48,6 +48,7 @@
 		5E8F42DD265D8CB90022F1E3 = {
 			isa = PBXGroup;
 			children = (
+				5E9C044E2666D66E002AB7A9 /* images */,
 				5E8F42E8265D8CB90022F1E3 /* Tipsy */,
 				5E8F42E7265D8CB90022F1E3 /* Products */,
 			);
@@ -64,7 +65,6 @@
 		5E8F42E8265D8CB90022F1E3 /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
-				5E9C044E2666D66E002AB7A9 /* images */,
 				5E8F42FE265D8E3E0022F1E3 /* Models */,
 				5E8F42FF265D8E460022F1E3 /* Views */,
 				5E8F4300265D8E4F0022F1E3 /* Controllers */,
