@@ -63,6 +63,10 @@ class CalculatorViewController: UIViewController {
     let result = (PctResult + billTotal) / Double(split)
     
     let finalResult = String(format: "%.2f", result)
+    
+    self.performSegue(withIdentifier: "goToResults", sender: self)
   }
+  
+  
 }
 
