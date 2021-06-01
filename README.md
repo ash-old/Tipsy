@@ -17,5 +17,5 @@ Simple bill sharing app made to help customers split that bill equally without f
 ### UI Design
 ![](images/Main.png)
 
-### Gameplay
+### Results
 ![](images/Results.png)
