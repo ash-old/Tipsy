@@ -8,7 +8,7 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-
+  
   @IBOutlet weak var billTextField: UITextField!
   @IBOutlet weak var zeroPctButton: UIButton!
   @IBOutlet weak var tenPctButton: UIButton!
@@ -16,9 +16,13 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var splitNumberLabel: UILabel!
   
   var percentage = ""
+  var stepperValue = ""
   
-
+  
   @IBAction func tipChanged(_ sender: UIButton) {
+    
+    billTextField.endEditing(true)
+    
     switch sender {
     case zeroPctButton:
       zeroPctButton.isSelected = true
@@ -35,19 +39,30 @@ class CalculatorViewController: UIViewController {
     default:
       print("error, no button text")
     }
+    
     percentage = sender.currentTitle ?? "Error, no button title"
   }
   
   @IBAction func stepperValueChanged(_ sender: UIStepper) {
-    let stepperValue = String(format: "%.*f", sender.value)
+    stepperValue = String(format: "%.*f", sender.value)
     splitNumberLabel.text = stepperValue
-    
   }
   
   
   @IBAction func calculatePressed(_ sender: UIButton) {
-    let decimal = Decimal(string: percentage) ?? 0
-    print(decimal / 100)
+    
+    let billTotal = Double(billTextField.text!) ?? 0
+    
+    let removePct = percentage.replacingOccurrences(of: "%", with: "")
+    let percent = Decimal(string: removePct) ?? 0
+    let decimalPercentage = percent / 100
+    
+    let split = Int(stepperValue) ?? 2
+    
+    let PctResult = billTotal * Double(truncating: decimalPercentage as NSNumber)
+    let result = (PctResult + billTotal) / Double(split)
+    
+    let finalResult = String(format: "%.2f", result)
   }
 }
 
