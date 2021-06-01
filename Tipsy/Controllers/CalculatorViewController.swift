@@ -9,6 +9,8 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
   
+//  var calculateBrain = CalculateBrain()
+  
   @IBOutlet weak var billTextField: UITextField!
   @IBOutlet weak var zeroPctButton: UIButton!
   @IBOutlet weak var tenPctButton: UIButton!
@@ -51,18 +53,22 @@ class CalculatorViewController: UIViewController {
   
   
   @IBAction func calculatePressed(_ sender: UIButton) {
+    let billText = billTextField.text!
+    let tipPercentage = percentage
+    let personSplitValue = stepperValue
     
-    let billTotal = Double(billTextField.text!) ?? 0
-    
-    let removePct = percentage.replacingOccurrences(of: "%", with: "")
+//    calculateBrain.calculateBill(billAmount: billText, tipPercentage: tipPercentage, personSplit: personSplitValue)
+    let billTotal = Double(billText) ?? 0
+
+    let removePct = tipPercentage.replacingOccurrences(of: "%", with: "")
     let percent = Decimal(string: removePct) ?? 0
     let decimalPercentage = percent / 100
-    
-    let split = Int(stepperValue) ?? 2
-    
+
+    let split = Int(personSplitValue) ?? 2
+
     let PctResult = billTotal * Double(truncating: decimalPercentage as NSNumber)
     let result = (PctResult + billTotal) / Double(split)
-    
+
     finalBill = String(format: "%.2f", result)
     
     self.performSegue(withIdentifier: "goToResults", sender: self)
