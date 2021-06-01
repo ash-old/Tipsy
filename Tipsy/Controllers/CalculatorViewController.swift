@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
   
   var percentage = ""
   var stepperValue = ""
+  var finalBill = ""
   
   
   @IBAction func tipChanged(_ sender: UIButton) {
@@ -62,11 +63,19 @@ class CalculatorViewController: UIViewController {
     let PctResult = billTotal * Double(truncating: decimalPercentage as NSNumber)
     let result = (PctResult + billTotal) / Double(split)
     
-    let finalResult = String(format: "%.2f", result)
+    finalBill = String(format: "%.2f", result)
     
     self.performSegue(withIdentifier: "goToResults", sender: self)
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "goToResults" {
+      let destinationVC = segue.destination as! ResultsViewController
+      destinationVC.totalPP = finalBill
+      destinationVC.totalSplit = stepperValue
+      destinationVC.totalTip = percentage
+    }
+  }
   
 }
 
