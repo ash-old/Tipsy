@@ -9,7 +9,7 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
   
-//  var calculateBrain = CalculateBrain()
+  var calculateBrain = CalculateBrain()
   
   @IBOutlet weak var billTextField: UITextField!
   @IBOutlet weak var zeroPctButton: UIButton!
@@ -17,9 +17,9 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var twentyPctButton: UIButton!
   @IBOutlet weak var splitNumberLabel: UILabel!
   
-  var percentage = ""
-  var stepperValue = ""
-  var finalBill = ""
+  var percentage = "0"
+  var stepperValue = 2
+  var billText = "0.00"
   
   
   @IBAction func tipChanged(_ sender: UIButton) {
@@ -47,29 +47,17 @@ class CalculatorViewController: UIViewController {
   }
   
   @IBAction func stepperValueChanged(_ sender: UIStepper) {
-    stepperValue = String(format: "%.*f", sender.value)
-    splitNumberLabel.text = stepperValue
+    splitNumberLabel.text = String(format: "%.*f", sender.value)
+    stepperValue = Int(sender.value)
   }
   
   
   @IBAction func calculatePressed(_ sender: UIButton) {
-    let billText = billTextField.text!
+    billText = billTextField.text!
     let tipPercentage = percentage
-    let personSplitValue = stepperValue
+    let personSplit = stepperValue
     
-//    calculateBrain.calculateBill(billAmount: billText, tipPercentage: tipPercentage, personSplit: personSplitValue)
-    let billTotal = Double(billText) ?? 0
-
-    let removePct = tipPercentage.replacingOccurrences(of: "%", with: "")
-    let percent = Decimal(string: removePct) ?? 0
-    let decimalPercentage = percent / 100
-
-    let split = Int(personSplitValue) ?? 2
-
-    let PctResult = billTotal * Double(truncating: decimalPercentage as NSNumber)
-    let result = (PctResult + billTotal) / Double(split)
-
-    finalBill = String(format: "%.2f", result)
+    calculateBrain.calculateBill(billAmount: billText, tipPercentage: tipPercentage, personSplit: personSplit)
     
     self.performSegue(withIdentifier: "goToResults", sender: self)
   }
@@ -77,7 +65,7 @@ class CalculatorViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "goToResults" {
       let destinationVC = segue.destination as! ResultsViewController
-      destinationVC.totalPP = finalBill
+      destinationVC.totalPP = calculateBrain.finalBill
       destinationVC.totalSplit = stepperValue
       destinationVC.totalTip = percentage
     }

@@ -10,7 +10,7 @@ import UIKit
 class ResultsViewController: UIViewController {
   
   var totalPP: String?
-  var totalSplit: String?
+  var totalSplit: Int?
   var totalTip: String?
   
 
@@ -22,7 +22,7 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
     
     totalLabel.text = totalPP
-    settingsLabel.text = "Bill split between \(totalSplit!) people, with a \(totalTip!) tip."
+    settingsLabel.text = "Bill split between \(totalSplit ?? 2) people, with a \(totalTip ?? "0") tip."
        
     }
     
